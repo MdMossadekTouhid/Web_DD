@@ -43,7 +43,7 @@ table caption{
 }
 #wrapper{
 	margin-top:20px;
-	background-image:url(back1.png);
+	background-image:url(media/back1.png);
 	background-attachment:fixed;
 	border:2px solid red;
 	width:500px;
