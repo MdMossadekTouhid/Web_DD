@@ -1,0 +1,171 @@
+<!--Javascript practice - https://www.w3resource.com/javascript-exercises/ -->  
+
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+<title>Practice (Javascript)</title>
+<style>
+</style>
+<script src="javascript.js"></script>
+<base>
+<link> 
+<meta charset="UTF-8">
+<noscript></noscript>
+</head> 
+<body> 
+
+	<script>
+		alert("Your response has been recorded.");
+		document.write("<h2>HI, I'm Md Mossadek Touhid.</h2>");
+		document.write("5+6");
+		document.write("<br>");
+		document.write(5+6);
+
+    </script>
+    <br>
+    <hr style="background-color:red;">
+
+    <button onclick="document.write('I love Bangladesh.');">Click Here</button>
+    <hr style="background-color:red;">
+    <h1 id="demo"></h1>
+    <h1 id="demo1">Old Heading</h1>
+
+	<script>
+		document.getElementById("demo").innerHTML = 5+6;
+		//document.getElementById("demo1").innerHTML = "Hello JavaScript!";
+
+	</script>
+
+    <button onclick="document.getElementById('demo1').innerHTML = 'New Heading';">Click for new heading</button>
+    <hr style="background-color:red;">
+    <script>
+		console.log("This is console");
+
+	</script><br><br>
+	<hr style="background-color:red;">
+	<button onclick="document.getElementById('off').src = 'media/bulb_on.png';">On</button>
+	<img id="off" src="media/bulb_off.png" alt="bulb off">
+	<!--img id="on" src="media/bulb_on.png" alt="bulb on"-->
+	<button onclick="document.getElementById('off').src = 'media/bulb_off.png';">Off</button>
+	<hr style="background-color:red;">
+
+	<p id="day"></p>
+	<script>
+		let day;
+		switch (new Date().getDay()) {
+  		case 0:
+	    	day = "Sunday";
+	    	break;
+  		case 1:
+	   		day = "Monday";
+	    	break;
+  		case 2:
+	    	day = "Tuesday";
+	    	break;
+	  	case 3:
+		    day = "Wednesday";
+		    break;
+	  	case 4:
+		    day = "Thursday";
+		    break;
+	  	case 5:
+		    day = "Friday";
+		    break;
+	  	case  6:
+	  		day= "Saturday";
+	    	
+		}
+	document.getElementById("day").innerHTML = "Today is " + day; 
+
+	</script>
+	<hr style="background-color:red;">
+	<p id="car"></p>
+	<script> 
+		const cars = ["Saab", "Volvo", "BMW"];
+		document.getElementById("car").innerHTML = cars;
+		/*cars[3]="Ford";
+		document.getElementById("car").innerHTML = cars[3];*/
+		document.write(cars.length,"<br>");
+		document.write(cars.sort());
+	</script>
+	<hr style="background-color:red;">
+	<p><mark># Input your age and click Try it:</mark></p>
+	<input id="age" value="18">
+	<button onclick="func()">Try it</button>
+	<p id="show"></p>
+
+	<script>
+		function func(){
+		var age= document.getElementById("age").value;
+		var str=(age<18)?"Too young":"Old enough";
+		document.getElementById("show").innerHTML = "Result : "+ str + " to vote.";
+	}
+
+	</script>
+	<hr style="background-color:red;">
+	<u id="object"></u>
+	<script>
+		const person = {firstName:"Mossadek", lastName:"Touhid", age:24};
+		document.getElementById("object").innerHTML = person.firstName; 
+	</script>
+	<br><br>
+	<hr style="background-color:red;">
+	<label for="dollar"><mark># Input in Pound : </mark></label>
+	<input type="number" id="dollar" oninput="myFunc()">
+	<p id="tk"></p>
+
+	<script>
+		function myFunc(){
+		var dol = document.getElementById("dollar").value;
+		var tk = dol*(84.80);
+		document.getElementById("tk").innerHTML = "TK : "+ tk;
+	}
+	</script>
+	<hr style="background-color:red;">
+	<p># Select a new car from the list:</p>
+
+	<select id="mySelect" onchange="myFunction()">
+	  <option value="Audi">Audi</option>
+	  <option value="BMW">BMW</option>
+	  <option value="Mercedes">Mercedes</option>
+	  <option value="Volvo">Volvo</option>
+	</select>
+
+	<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+	<p id="onchange"></p>
+
+	<script>
+	function myFunction() {
+	  var x = document.getElementById("mySelect").value;
+	  document.getElementById("onchange").innerHTML = "You selected: " + x;
+	}
+	</script>
+	<hr style="background-color:red;">
+
+	<p># This example demonstrates how to dynamically update a slider value with oninput.</p>
+
+	<input type="range" oninput="Function(this.value)">                             
+	<p id="slider"></p>
+
+	<script>
+	function Function(val) {
+	  document.getElementById("slider").innerHTML = val; 
+	}
+	</script>
+	<hr style="background-color:red;">
+
+	<label for="pound"><mark># Input in Pound : </mark></label>
+	<input type="number" id="pound" oninput="convert(this.value)" onchange="convert(this.value)">
+	<p id="kg"></p>
+
+	<script>
+		function convert(val){
+		var kg = val/2.205;
+		document.getElementById("kg").innerHTML = "Kilogram : "+ kg;
+	}
+	</script>
+	<hr style="background-color:red;">
+
+
+</body>
+</html>
