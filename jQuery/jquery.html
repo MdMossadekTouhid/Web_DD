@@ -1,0 +1,337 @@
+<!--Basic syntax is:
+1. $(selector).action()
+Examples:
+$(this).hide()
+$("p").hide()
+$(".test").hide()
+$("#test").hide()
+
+2. $(document).ready(function(){
+
+  		// jQuery methods go here...
+
+	});
+
+3. $(function(){
+
+  		// jQuery methods go here...
+
+	});
+
+#jQuery events
+Mouse Events - click,dblclick,mouseenter,mouseleave,hover(mouseenter+mouseleave).
+Keyboard Events - keypress,keydown,keyup.
+Form Events - submit,change,focus,blur.
+Document/Window Events - load,resize,scroll,unload.
+
+#jQuery effects
+hide/show/toggle
+fade----fadeIn/fadeOut/fadeToggle
+slide----slideUp/slideDown/slideToggle
+animate
+stop()
+callback
+chaining
+
+#jquery get content and jQuery set content have three methods:
+> text()
+> html()
+> val()
+
+#jQuery Add content has four methods:
+> append()
+> prepend()
+> after()
+> before()
+
+#jQuery Remove content has four methods:
+> remove()
+> empty()
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+<title>Practice (jQuery)</title>
+<style>
+	#panel, #flip {
+	  padding: 5px;
+	  text-align: center;
+	  background-color: #e5eecc;
+	  border: solid 1px #c3c3c3;
+	}
+
+	#panel {
+	  padding: 50px;
+	  display: none;
+	}
+	#panel1, #flip1 {
+	  padding: 5px;
+	  font-size: 18px;
+	  text-align: center;
+	  background-color: #555;
+	  color: white;
+	  border: solid 1px #666;
+	  border-radius: 3px;
+	}
+
+	#panel1 {
+	  padding: 50px;
+	  display: none;
+	}
+</style>
+
+<!--script src="jquery-3.6.0.min.js"></script-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<base>
+<link> 
+<meta charset="UTF-8">
+<noscript></noscript>
+</head> 
+<body> 
+	<p>This is a visible paragraph.</p>
+	<p class="hidden">This is a hidden paragraph.Click it,then it'll be hidden.</p>
+	<script>
+		$(document).ready(function(){
+			$(".hidden").click(function(){
+				$(this).hide();
+			});
+		}) ;
+	</script>
+	<hr style="background-color:red;">
+
+	<p class="hs">Hide & Show</p>
+	<button class="hide">Hide</button>
+	<button class="show">Show</button>
+	<button class="toggle">Toggle</button>
+	<script>
+		$(document).ready(function(){
+			$(".hide").click(function(){
+				$(".hs").hide();
+			});
+			$(".show").click(function(){
+				$(".hs").show();
+			});
+			$(".toggle").click(function(){
+				$(".hs").toggle();
+			});
+		}) ;
+	</script>
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $("button").click(function(){
+	    $("ul li:first-child").hide();
+	  });
+	});
+	</script>
+	
+	<p>List 1:</p>
+	<ul>
+	  <li>Coffee</li>
+	  <li>Milk</li>
+	  <li>Tea</li>
+	</ul>
+
+	<p>List 2:</p>
+	<ul>
+	  <li>Coffee</li>
+	  <li>Milk</li>
+	  <li>Tea</li>
+	</ul>
+
+	<button>Click me</button>
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $(".link_hide").click(function(){
+	    $("[href]").hide(1000);  // "slow"/"fast"/milliseconds
+	  });
+	});
+	</script>
+
+	<p><a href="https://www.w3schools.com/html/">HTML Tutorial</a></p>
+	<p><a href="https://www.w3schools.com/css/">CSS Tutorial</a></p>
+
+	<button class="link_hide">Click me</button>
+	<hr style="background-color:red;">
+
+	<!--script>
+	$(document).ready(function(){
+	  $("#p1").hover(function(){
+	    alert("বাঙালির দ্বিমেরু-বিভ্রাট");
+	  },
+	  function(){
+	    alert("Bye! আমি সাতে-পাঁচে নেই বাবা");
+	  }); 
+	});
+	</script>
+
+	<p id="p1">এক চীনা জল্লাদের সাধনা ছিল এমন নিখুঁত কোপে মানুষের মাথা কাটা, যাতে দণ্ডিত লোকটি টেরও না পায়। সাধনার এমনই তুঙ্গে তিনি পৌঁছলেন যে একদিন খাঁড়ার এক কোপে একজনের মাথা কাটার পরও লোকটি নির্বিকার। কিছুক্ষণ অপেক্ষার পর মানুষটি প্রশ্ন করে, ‘কই, কিছুই তো টের পাচ্ছি না।’ জবাবে গর্বিত জল্লাদের মিহি হাসিমাখা উত্তর, ‘জনাব, মাথাটা একটু ঝাঁকান, টের পাবেন।’ বিনোদন, অনৈতিক বাণিজ্য, দুর্বৃত্ত রাজনীতি আর ক্ষমতাতৃষ্ণার খাঁড়ায় কখন আমাদের নীতির মাথা কাটা পড়েছে, তা বুঝতে মাথাটা একটু ঝাঁকাতে হবে। কিন্তু সেই সৎ সাহসের তৌফিক কি আমাদের হবে?</p>
+	<hr style="background-color:red;"-->
+
+	<script>
+	$(document).ready(function(){
+	  $("input").focus(function(){
+	    $(this).css("background-color", "yellow");
+	  });
+	  $("input").blur(function(){
+	    $(this).css("background-color", "green");
+	  });
+	});
+	</script>
+
+	Name: <input type="text" name="fullname"><br><br>
+	Email: <input type="text" name="email">
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $(".fade").click(function(){
+	    $("#div1").fadeToggle();
+	    $("#div2").fadeToggle("slow");
+	    $("#div3").fadeToggle(3000);
+	  });
+	});
+	</script>
+
+	<p>Demonstrate fadeToggle() with different speed parameters.</p>
+
+	<button class="fade">Click to fade in/out boxes</button><br><br>
+
+	<div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+	<br>
+	<div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+	<br>
+	<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+
+	<hr style="background-color:red;">
+
+	<script> 
+	$(document).ready(function(){
+	  $("#flip").click(function(){
+	    $("#panel").slideToggle("slow");
+	  });
+	});
+	</script>
+	 
+	<div id="flip">Click to slide the panel down or up</div>
+	<div id="panel">'কোনো কাজই ছোট নয়'-শৈশবে পাঠ্যবই থেকে মুখস্থ করা এই বাণীর মর্মার্থ বিশ্ববিদ্যালয় পার হওয়ার পর ভুলে যাওয়া এই দেশের একটি অতি প্রাচীন 'রেওয়াজ'।এমএ পাস করে একটা চাকরির জন্য বছরের পর বছর ঘুরে জুতার সুকতলা ক্ষয় করাকে এখনো এই সমাজ কায়িক শ্রম বা অন্য যে কোনো ‘ছোট কাজ’ করার চেয়ে অধিক মর্যাদার আসনে বসিয়ে রেখেছে।ঔপনিবেশিক আমল থেকে শিক্ষার্থীকে পাঠমনস্ক করতে অভিভাবকেরা শুনিয়ে এসেছেন ‘লেখাপড়া করে যে, গাড়িঘোড়া চড়ে সে’। সে কারণেই শিক্ষার্থীর মননে এ ধারণা প্রোথিত হয়ে যায়, ‘অফিসার হওয়াই শিক্ষার মূল মোক্ষ’।</div>
+	<hr style="background-color:red;">
+
+	<script> 
+	$(document).ready(function(){
+	  $("#flip1").click(function(){
+	    $("#panel1").slideToggle(3000);
+	  });
+	  $("#start").click(function(){
+	    $("#panel1").slideToggle(3000);
+	  });
+	  $("#stop").click(function(){
+	    $("#panel1").stop();
+	  });
+	});
+	</script>
+	
+	<button id="start" style="background-color:green;color:white;border-radius:5px;">Start sliding</button> 
+	<button id="stop" style="background-color:red;color:white;border-radius:5px;">Stop sliding</button><br><br>
+
+	<div id="flip1">Click to slide panel down or up</div>
+	<div id="panel1">stop() করলে শুধু ঐ সময়ের animation টা off হবে। পরের animation ঠিকই চলবে।<br>var div = $("div");<br>div.animate({left: '100px'}, "slow");<br>div.animate({fontSize: '3em'}, "slow");<hr>মনে রাখবেন, তেল না খেলে অন্যকে সুচারুভাবে তেল মালিশ করাও সম্ভব হয় না। আর এখন চলছেই তেল মালিশের যুগ।পেশাজীবনে তেল আরও গুরুত্বপূর্ণ ভূমিকা পালন করে। কখনো কখনো জীবনরক্ষাকারী পানির চেয়েও বেশি। এ প্রসঙ্গে তৈলাক্ত বাঁশ বেয়ে বানরের ওপরে ওঠার গাণিতিক সমস্যাটির কথা মনে পড়ে যায়। তফাত হলো, ওই গাণিতিক সমস্যায় বানরের নিচে নামার হিসাবও কষতে হয়। কিন্তু আপনার হাতে, মুখে ও অতি অবশ্যই মাথায় যদি তেলতেলে অবস্থা বিদ্যমান থাকে, তবে আপনার নিচে নামার হিসাব নিয়ে ভাবতেই হবে না। আপনি নিশ্চিন্তে ঊর্ধ্বগামী হতে পারবেন। মহাকাশই তখন হবে আপনার সীমানা।</div>
+
+	<hr style="background-color:red;">
+	<script>
+	$(document).ready(function(){
+	  $("#callback").click(function(){
+	    $(".callback").hide("slow", function(){
+	      alert("The paragraph is now hidden");
+	    });
+	  });
+	});
+	</script>
+
+	<button id="callback">Hide</button>
+	<p class="callback">First hide, then alert.(jQuery callback)</p>
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $("#callback1").click(function(){
+	    $(".callback1").hide(1000);
+	    alert("The paragraph is now hidden.");
+	  });
+	});
+	</script>
+	<button id="callback1">Hide</button>
+	<p class="callback1">First alert, then hide.(jQuery callback)</p>
+
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $(".chaining").click(function(){
+	    $("#chaining").css("color", "red").slideUp(2000).slideDown(2000);
+	  });
+	});
+	</script>
+
+	<p id="chaining">jQuery chaining!!</p>
+	<button class="chaining">Click me</button>
+
+	<hr style="background-color:red;">
+
+	<script>
+	$(document).ready(function(){
+	  $(".country").click(function(){
+	    alert("Country : " + $("#country").val());  //get content
+	  });
+	});
+	</script>
+	
+	Country:
+	  <select name="country" id="country">
+	  	<option value="Bangladesh">Bangladesh</option>
+	  	<option>USA</option>
+	  	<option>Pakistan</option>
+	  	<option>Srilanka</option>
+	  	<option selected>Saudi Arab</option> 
+	  </select>
+	  <br><br>
+	  <button class="country">Show Value</button>
+
+	  <hr style="background-color:red;">
+
+	<script> 
+	$(document).ready(function(){
+	  $(".animation1").click(function(){
+	    $("#animate1").animate({
+	      height: 'toggle'    //show/hide/toggle
+	    },2000);
+	  });
+	});
+	</script>
+	<p>By default, all HTML elements have a static position. Here, position:absolute.</p>
+	<button class="animation1">Start Animation</button><br><br>
+	<div id="animate1" style="background:red;height:100px;width:100px;position:absolute;"></div>
+
+	<!--hr style="background-color:red;"-->
+
+	<script> 
+	$(document).ready(function(){
+	  $(".animation2").click(function(){
+	  	var myAnimation = $("#animate2");
+	    myAnimation.animate({
+	      left: '100px',
+	      height: '+=10px',
+	      width: '+=10px'
+	    });
+	  });
+	});
+	</script> 
+	<button class="animation2">Start Animation</button><br><br>
+	<div id="animate2" style="background:blue;height:100px;width:100px;position:absolute;"></div>
+	<!--hr style="background-color:red;"-->
+
+</body>
+</html>
